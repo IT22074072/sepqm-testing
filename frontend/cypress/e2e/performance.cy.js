@@ -4,7 +4,6 @@ describe('Performance Tests', () => {
   });
 
   it('should measure page load performance', () => {
-    // Measure initial page load
     cy.visit('http://localhost:5173/shopOwner/dashboard', {
       onBeforeLoad: (win) => {
         win.performance.mark('start-load');
@@ -13,7 +12,7 @@ describe('Performance Tests', () => {
         win.performance.mark('end-load');
         win.performance.measure('page-load', 'start-load', 'end-load');
         const measure = win.performance.getEntriesByName('page-load')[0];
-        expect(measure.duration).to.be.lessThan(3000); // 3 seconds max
+        expect(measure.duration).to.be.lessThan(3000);
       }
     });
   });
@@ -21,12 +20,11 @@ describe('Performance Tests', () => {
   it('should measure image loading performance', () => {
     cy.visit('http://localhost:5173/shopOwner/dashboard/view-items');
     
-    // Measure image load times
     cy.get('img').each(($img) => {
       const startTime = performance.now();
       cy.wrap($img).should('be.visible').then(() => {
         const loadTime = performance.now() - startTime;
-        expect(loadTime).to.be.lessThan(2000); // 2 seconds max per image
+        expect(loadTime).to.be.lessThan(2000);
       });
     });
   });
@@ -58,7 +56,7 @@ describe('Performance Tests', () => {
       onLoad: (win) => {
         const resources = win.performance.getEntriesByType('resource');
         resources.forEach((resource) => {
-          expect(resource.duration).to.be.lessThan(3000); // 3 seconds max per resource
+          expect(resource.duration).to.be.lessThan(3000);
         });
       }
     });
