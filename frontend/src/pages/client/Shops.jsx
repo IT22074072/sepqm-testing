@@ -53,7 +53,7 @@ const Shops = () => {
           shops.map((shop) => (
             <div
               key={shop._id}
-              className="relative overflow-hidden bg-white rounded-lg shadow-md cursor-pointer"
+              className="relative overflow-hidden bg-white rounded-lg shadow-md cursor-pointer shop-card"
               onClick={() => handleCardClick(shop._id)}
             >
               <img
