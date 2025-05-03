@@ -174,7 +174,7 @@ const AddItem = () => {
                 maxLength={30}
               />
               {errors.name && (
-                <div className="font-semibold text-red-600">{errors.name}</div>
+                <div data-cy="error-name" className="font-semibold text-red-600">{errors.name}</div>
               )}
             </div>
 
@@ -188,8 +188,8 @@ const AddItem = () => {
                 required
                 onChange={(e) => validateInput("qty", e.target.value)}
               />
-              {errors.qty && (
-                <div className="font-semibold text-red-600">{errors.qty}</div>
+              {errors.qty  && (
+                <div data-cy="error-quantity" className="font-semibold text-red-600">{errors.qty}</div>
               )}
             </div>
           </div>
@@ -210,7 +210,7 @@ const AddItem = () => {
                 maxLength={10}
               />
               {errors.price && (
-                <div className="font-semibold text-red-600">{errors.price}</div>
+                <div data-cy="error-price" className="font-semibold text-red-600">{errors.price}</div>
               )}
             </div>
 
@@ -256,7 +256,7 @@ const AddItem = () => {
                 maxLength={1000}
               />
               {errors.description && (
-                <div className="font-semibold text-red-600">
+                <div data-cy="error-description" className="font-semibold text-red-600">
                   {errors.description}
                 </div>
               )}
